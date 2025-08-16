@@ -40,13 +40,15 @@ app.use(methodOverride ("_method"));
 app.engine("ejs" , ejsMate);
 app.use(express.static(path.join(__dirname , "public")));
 
+
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-       secret : process.env.SECRET,
+        secret: process.env.SECRET,
     },
-    touchAfter: 24 * 3600,
+    touchAfter: 24 * 3600, // time period in seconds
 });
+
 
 store.on("error", () =>{
     console.log("ERROR IN MONGO SESSION STORE", err);
@@ -54,7 +56,7 @@ store.on("error", () =>{
 
 const sessionOptions = {
     store,
-    secret :  process.env.SECRET,
+    secret : process.env.SECRET,
     resave : false,
     saveUninitialized : true,
     cookie : {
@@ -63,6 +65,7 @@ const sessionOptions = {
         httpsOnly : true,
     },
 }
+
 
 /*app.get("/" , (req, res) => {
     res.send("Hii , I'm root..");
@@ -91,9 +94,9 @@ passport.deserializeUser(User.deserializeUser());
 // });
 
 app.use((req , res , next) => {
-    res.locals.success = req.flash("success");
+    res.locals.success = req.flash("success") || [];
     // console.log(res.locals.success);
-    res.locals.error = req.flash("error");
+    res.locals.error = req.flash("error")  || [];
     res.locals.currUser = req.user;
     next();
 });

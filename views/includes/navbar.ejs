@@ -1,32 +1,50 @@
 <link rel="stylesheet" href="/css/style.css" />
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/listings"><i class="fa-brands fa-airbnb fa-2xl"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="/listings"><h3 class="WanderLust">WanderLust</h3></a>
-        </div>
+  <div class="container-fluid">
+    <!-- Brand Logo -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-brands fa-airbnb fa-2xl"></i>
+    </a>
 
-        <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" aria-label="Search">
-            <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-          </form>
-        </div>
+    <!-- Mobile Menu Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
-          <% if(!currUser){ %>
-            <a class="nav-link " aria-current="page" href="/signup"><b>SignUp</b></a>
-            <a class="nav-link" href="/login"> <b> Login</b></a>
-          <% }%>
-          <% if(currUser) {%>
-            <a class="nav-link" href="/logout"> <b>Logout</b></a>
-          <% }%>
-        </div>
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- Left side -->
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">
+          <h3 class="WanderLust">WanderLust</h3>
+        </a>
+      </div>
+
+      <!-- Search bar -->
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" aria-label="Search">
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+      </div>
+
+      <!-- Right side: Auth + Extra Links -->
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+
+        <% if (typeof currUser !== "undefined" && currUser) { %>
+          <!-- Show when user is logged in -->
+          <span class="nav-link"><b>Hi, <%= currUser.username %></b></span>
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <% } else { %>
+          <!-- Show when user is not logged in -->
+          <a class="nav-link" href="/signup"><b>SignUp</b></a>
+          <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
