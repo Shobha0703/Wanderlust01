@@ -27,7 +27,7 @@ https://wanderlust01-zhxt.onrender.com/listings
 - HTML
 - CSS
 - JavaScript
-- Bootstrap / EJS (if used)
+- Bootstrap 
 
 ### Backend:
 - Node.js
@@ -65,7 +65,7 @@ Follow these steps to run the project on your local machine:
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/your-username/wanderlust.git
+git clone https://github.com/your-username/wanderlust01.git
 cd wanderlust
 ```
 
@@ -93,51 +93,9 @@ node app.js
 http://localhost:3000
 ```
 
----
 
-## 📸 Screenshots
-
-### 🏠 Home / Listings Page
-(Add screenshot here)
-
-### ➕ Add Listing Page
-(Add screenshot here)
-
-### ⭐ Review Section
-(Add screenshot here)
-
----
-
-## 🔐 Environment Variables
-
-This project uses environment variables for security.  
-Create a `.env` file and add:
-
-- MONGO_URI (MongoDB Atlas connection string)
-- CLOUDINARY_CLOUD_NAME
-- CLOUDINARY_KEY
-- CLOUDINARY_SECRET
-- SESSION_SECRET
-
----
-
-## 🚧 Future Improvements
-
-- 🔍 Search and filter listings
-- 🗺️ Map integration (Google Maps / Mapbox)
-- ❤️ Wishlist / Favorites feature
-- 💬 User profile dashboard
-- 📊 Advanced UI/UX improvements
-
----
 
 ## 👩‍💻 Author
 
 **Shobha Goswami**  
-GitHub: https://github.com/your-github-username  
-
----
-
-## 📜 License
-
-This project is created for learning and educational purposes.
+GitHub: https://github.com/Shobha0703  
